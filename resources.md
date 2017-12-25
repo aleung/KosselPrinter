@@ -2,24 +2,41 @@
 
 ## Arduino
 
-Arduino IDE [download](https://www.arduino.cc/en/Main/Software)
+Install [Arduino IDE](https://www.arduino.cc/)
 
-[Getting started](https://www.arduino.cc/en/Guide/MacOSX) on Mac OS X
+On Tools menu, select board: MEGA 2560 and port. 
 
 ## Firmware
 
-Marlin [introduction](http://reprap.org/wiki/Marlin), [setup](http://www.marlinfirmware.org/index.php/Setup) and [config](http://www.marlinfirmware.org/index.php/Marlin_Configuration)
+[Marlin](http://marlinfw.org/) firmware for RepRap family printers. ([github](https://github.com/MarlinFirmware/Marlin))
 
-Marlin [configuration example](http://www.makerlab.me/t/1) with comments in Chinese
+Double click `Marlin/Marlin.ino` file to open project in Arduino IDE.
 
-G-code [full list](http://reprap.org/wiki/G-code), [implemented in Marlin](http://www.marlinfirmware.org/index.php/G-Code_in_Marlin)
+Config
+
+Calculate key parameters by [Prusa Printers Calculator](https://www.prusaprinters.org/calculator/)：
+
+* `DEFAULT_AXIS_STEPS_PER_UNIT` 
+
+G-code [full list](http://reprap.org/wiki/G-code), [implemented in Marlin](http://marlinfw.org/meta/gcode/)
 
 ## Slicer 
 
-## Host (G-Code sender)
+Slicers prepare a solid 3D model by dividing it up into thin slices (layers). In the process it generates the G-code base on printer parameters.
 
-Printrun [download](http://koti.kapsi.fi/~kliment/printrun/)
+* [Slic3r](http://slic3r.org/)
 
-## CAD
+## Printing Host
 
-[OpenSCAD](http://www.openscad.org/), programmers solid 3D CAD modeller
+3D printing host software. Communicate with the printer to control and send G-codes.
+
+* [Printrun](https://github.com/kliment/Printrun) pronterface
+
+## Modeling
+
+* [OpenSCAD](http://www.openscad.org/), programmers solid 3D CAD modeller
+
+## Other Resources
+
+* [Prusa Printer Calculator](https://www.prusaprinters.org/calculator/)
+
