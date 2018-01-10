@@ -4,6 +4,8 @@
 
 ![delta-offsets](ref/delta-offsets.png)
 
+![flow](ref/flow.jpg)
+
 # Hardware Adjustment
 
 皮带松紧调节：保持松紧度一致，用调琴弦的方式，调节到三根皮带的震动音调一致。
