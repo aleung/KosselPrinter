@@ -77,7 +77,8 @@ List of G-codes can be found in [RepRap](http://reprap.org/wiki/G-code) and [Mar
 | `G0 [X<pos>] [Y<pos>] [Z<pos>] [F<rate>]` | Linear move               | F: maximum movement rate (mm/min)        |
 | `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<rate>]` | Linear move               | E: lenght of filament to feed into the extruder |
 | `G28 [X] [Y] [Z]`                        | Move to home              |                                          |
-| `G29`                                    | Bed leveling              | See Marlin document                      |
+| `G30 X<pos> Y<pos>`                      | Single Z probe            |                                          |
+| `G33 P<n>`                               | Delta auto calibration    | P: number of probe points (n*n). Recommended: 1/2/5/10 |
 | `M84 [S<sec>]`                           | Stop idle hold            | S: idle the stepper motors after several seconds. |
 | `M106 [Snnn]`                            | Fan on                    | 0~255, no speed sets the fan to full speed |
 | `M107`                                   | Fan off                   |                                          |
