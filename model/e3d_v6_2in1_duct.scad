@@ -1,8 +1,12 @@
 corner_r = 4;
 fan_fixer_d = 3;
 bolt_pillar_lenght = 5;
+fan_tilt = 20;
+bottom_tilt = 60;
+nozzle_tilt = 35;
+offset = 2.5;
 D_M3 = 3.3; 
-D_M3_BOLT = 6.6;
+D_M3_BOLT = 6.8;
 
 $fn=40; // set to 40 in final output
 
@@ -22,7 +26,7 @@ difference() {
   e3d_v6_duct_bolt_hole(fan_fixer_d, bolt_pillar_lenght);
 }
 
-//color("white") e3d_v6_and_fan_duct(fan_fixer_d);  // remark it in final output
+// color("white") e3d_v6_and_fan_duct(fan_fixer_d);  // remark it in final output
 
 
 // 风扇座, d-最小厚度
@@ -30,7 +34,7 @@ module main_body(d) {
   difference() {
     union() {
         translate([corner_r, corner_r, 0]) minkowski() {
-          cube([40-corner_r*2, 40-corner_r*2, 20]);
+          cube([offset+40-corner_r*2, 40-corner_r*2, d]);
           cylinder(r=corner_r, 20);        
         }
         // 卡扣
@@ -38,31 +42,31 @@ module main_body(d) {
     }
     
     // 削去多余部分
-    rotate(a=-30, v=[0,1,0]) translate([0, 0, d]) cube([80, 40, 50]);
-    translate([40, 0, d+1]) rotate(a=-45, v=[0,1,0]) cube([20, 40, 40]);
+    rotate(a=-fan_tilt, v=[0,1,0]) translate([0, 0, d]) cube([80, 40, 50]);
+    translate([40+offset, 0, d+1]) rotate(a=-bottom_tilt, v=[0,1,0]) cube([20, 40, 40]);
 
     translate([0, 0, d+1]) rotate([70,0,0]) cube([40, 20, 20]);
     translate([0, 40, d+1]) rotate([20,0,0]) cube([40, 20, 20]);
     
     // 螺丝孔
-    translate([4,4,-0.1]) cylinder(h=6.1, d=D_M3);
-    translate([36,4,-0.1]) cylinder(h=6.1, d=D_M3);
-    translate([4,36,-0.1]) cylinder(h=6.1, d=D_M3);
-    translate([36,36,-0.1]) cylinder(h=6.1, d=D_M3);
+    translate([offset+4,4,-0.1]) cylinder(h=6.1, d=D_M3);
+    translate([offset+36,4,-0.1]) cylinder(h=6.1, d=D_M3);
+    translate([offset+4,36,-0.1]) cylinder(h=6.1, d=D_M3);
+    translate([offset+36,36,-0.1]) cylinder(h=6.1, d=D_M3);
     
-    translate([4,4,2]) rotate([0,0,6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
-    translate([36,4,2]) rotate([0,0,-6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
-    translate([4,36,2]) rotate([0,0,-6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
-    translate([36,36,2]) rotate([0,0,6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
+    translate([offset+4,4,2]) rotate([0,0,-6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
+    translate([offset+36,4,2]) rotate([0,0,-6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
+    translate([offset+4,36,2]) rotate([0,0,6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
+    translate([offset+36,36,2]) rotate([0,0,6.5]) cylinder(h=20, d=D_M3_BOLT, $fn=6);
     
-    translate([38, 2, 4]) cylinder(r=6, h=20);
-    translate([38, 38, 4]) cylinder(r=6, h=20);
+    translate([offset+38, 2, 4]) cylinder(r=6, h=20);
+    translate([offset+38, 38, 4]) cylinder(r=6, h=20);
   }
 
 }
 
 module e3d_v6_and_fan_duct(d) {
-  rotate(a=-30, v=[0,1,0]) translate([0, 5, d]) {
+  rotate(a=-fan_tilt, v=[0,1,0]) translate([0, 5, d]) {
     difference() {
       cube([30, 30, 15]);
       translate([15, 15, -0.1]) cylinder(d=27, 15);    
@@ -77,7 +81,7 @@ module e3d_v6_and_fan_duct(d) {
 }
 
 module e3d_v6_duct_bolt_hole(d, length) {
-  rotate(a=-30, v=[0,1,0]) translate([0, 5, d]) {
+  rotate(a=-fan_tilt, v=[0,1,0]) translate([0, 5, d]) {
       translate([27, 3, -length-0.5]) cylinder(r=1.6, length+1);    
       translate([27, 27, -length-0.5]) cylinder(r=1.6, length+1);    
       translate([27, 3, -20-length]) cylinder(r=3.3, 20);    
@@ -86,7 +90,7 @@ module e3d_v6_duct_bolt_hole(d, length) {
 }
 
 module e3d_v6_duct_bolt_pillar(d, length) {
-  rotate(a=-30, v=[0,1,0]) translate([0, 5, d])  {
+  rotate(a=-fan_tilt, v=[0,1,0]) translate([0, 5, d])  {
       translate([27, 3, -length]) cylinder(r=3.3, length);    
       translate([27, 27, -length]) cylinder(r=3.3, length);    
   }
@@ -96,8 +100,11 @@ module e3d_v6_duct_bolt_pillar(d, length) {
 // E3D V6 散热风道
 module e3d_v6_flue(d) {
   hull() {
-    rotate(a=-30, v=[0,1,0]) translate([15, 20, d]) cylinder(d=27, 1);    
-    difference() {
+    rotate(a=-fan_tilt, v=[0,1,0]) translate([15, 20, d]) difference() {
+      cylinder(d=27, 1);
+      translate([11,-10,0]) cube([3, 20, 1]);
+    }     
+    translate([offset, 0, 0]) difference() {
       translate([20, 20, -0.1]) cylinder(d=37, 1);
       translate([19.5, 0, -0.1]) cube([30, 40, 1]);
     }
@@ -105,22 +112,23 @@ module e3d_v6_flue(d) {
 }
 
 module hotend_duct(d) {
-    hull() {
-        translate([27.5, 9, 28]) rotate(a=40, v=[0,1,0]) cube([7, 22, 1]);
-        translate([28, 20, 12+3]) rotate([0, 45, 0]) difference() {
+    translate([offset, 0, 0]) hull() {
+        translate([29.5, 9, 24]) rotate(a=nozzle_tilt, v=[0,1,0]) cube([6, 22, 1]);
+        translate([26, 20, 7+d]) rotate([0, 90-bottom_tilt, 0]) difference() {
            cylinder(d=31, 1);
-           translate([-19, -20, 0]) cube([15, 40, 1]);
+           translate([-19, -20, 0]) cube([17, 40, 1]);
         }
     }
 }
 
 // 挤出端散热风道
 module hotend_flue(d) {
-    hull() {
-        translate([29,11, 28]) rotate(a=40, v=[0,1,0]) cube([4, 18, 1]);
+    translate([offset, 0, 0]) hull() {
+        translate([30.4, 10, 24]) rotate(a=nozzle_tilt, v=[0,1,0]) cube([4, 20, 1]);
         difference() {
           translate([20, 20, -0.1]) cylinder(d=37, 1);
           translate([0, 0, -0.1]) cube([20.5, 40, 1]);
         }
     }
 }
+
