@@ -114,9 +114,9 @@ module e3d_v6_flue(d) {
 module hotend_duct(d) {
     translate([offset, 0, 0]) hull() {
         translate([29.5, 9, 24]) rotate(a=nozzle_tilt, v=[0,1,0]) cube([6, 22, 1]);
-        translate([26, 20, 7+d]) rotate([0, 90-bottom_tilt, 0]) difference() {
-           cylinder(d=31, 1);
-           translate([-19, -20, 0]) cube([17, 40, 1]);
+        translate([25.6, 20, 8+d]) rotate([0, 90-bottom_tilt, 0]) difference() {
+           cylinder(d=32, 1);
+           translate([-19, -20, 0]) cube([17.5, 40, 1]);
         }
     }
 }
