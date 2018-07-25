@@ -26,12 +26,14 @@ module ring(height, d1=torch_diameter, d2=torch_diameter) {
 	}	
 }
 
-module triPrism(theta, t, h, seq) {
-	a = t/tan(theta);
-	b = t*tan(2*theta);
-	translate([(a+b)*seq, 0, 0])
-	  linear_extrude(height=h)
-	    polygon([[-b, 0], [a, 0], [0, -t]]);
+module partialCylinder(r, t, h, seq) {
+	side = sqrt(pow(r,2)-pow(r-t,2)) * 2;
+	offset = side * seq;
+	difference() {
+    translate([offset, r-t, 0]) cylinder(h=h, r=r);
+    translate([offset-r, 0, -0.1]) cube([2*r, 2*r, h+1]);
+		rotate([135, 0, 0]) translate([-side/2, 0, 0]) cube([side, r, r]);
+	}
 }
 
 module reflector(y_size=thickness, flat=false) {
@@ -39,7 +41,7 @@ module reflector(y_size=thickness, flat=false) {
 		translate([-0.1, 0, 0]) cube([width, y_size, reflector_overhang]);
 		if (!flat) {
 			for(seq=[0:1])
-				triPrism(12, 2, reflector_overhang, seq);
+				partialCylinder(10, 2, reflector_overhang, seq);
 		}
 	}
  	height = sqrt(pow(reflector_overhang-thickness*2, 2) + pow(cutted_beam_min_radius, 2));
