@@ -1,15 +1,15 @@
 // ---- parameters ----
 
 torch_diameter = 45.3;
-cutted_beam_min_radius = 10;
+cutted_beam_min_radius = 12;
 
 thickness = 2;
 
-reflector_overhang = 55;
+reflector_overhang = 70;
 ring_height = 15;
 
 preview = true;    // remark it for STL output
-beam_length = 95;  // change it to see how beam is cutted
+beam_length = 110;  // change it to see how beam is cutted
 
 // --------------------
 
