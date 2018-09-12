@@ -1,0 +1,3 @@
+[submodule "lib/relativity.scad"]
+	path = lib/relativity.scad
+	url = https://github.com/aleung/relativity.scad.git
