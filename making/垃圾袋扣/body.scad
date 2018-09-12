@@ -1,4 +1,4 @@
-include <../../lib/relativity.scad> // https://github.com/davidson16807/relativity.scad
+include <../../lib/relativity.scad/relativity.scad> // https://github.com/davidson16807/relativity.scad
 
 module body() {
   width=30;
@@ -13,10 +13,10 @@ module body() {
       align(bottom)
       box([10, width, $parent_size.z], anchor=bottom-x)
       align(bottom+x)
-      box([73, width, $parent_size.z], anchor=bottom-x, $class="body")
+      box([65, width, $parent_size.z], anchor=bottom-x, $class="body")
       ;
       translated(y*7.5, [-1,1])
-      translated(x*10, [1:8])
+      translated(x*14, [1:8])
       colored("red")
       box([6, 5, height+10], anchor=bottom+x, $class="hole")
       ;
@@ -24,7 +24,7 @@ module body() {
 
 }
 
-intersected("cut", "not(cut)") {
-  box([65, 100, 50], $class="cut");
-  body();
+intersected("not(left)", "left") {
+  // box([65, 100, 50]);
+  class("left") body();
 }

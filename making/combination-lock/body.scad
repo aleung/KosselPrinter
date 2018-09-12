@@ -1,4 +1,4 @@
-include <../../lib/relativity.scad> // https://github.com/davidson16807/relativity.scad
+include <../../lib/relativity.scad/relativity.scad> // https://github.com/davidson16807/relativity.scad
 include <configure.scad>
 
 $fn=16;
