@@ -65,3 +65,19 @@ module helix_extrude(angle=360, height=100) {
 					helix_segment() children();
 	}
 }
+
+// Module used to create the polygon
+// (to make it easier to re-use with rotate_extrude)
+module helixPolygon(crest, root, height) {
+	retract = (root - crest)/2;
+	// Move the trapezoid away from the center
+	// translate([axelRadius, 0, 0]) {
+		// Simple trapezoid
+		polygon([
+			[0, 0],
+			[height, retract],
+			[height, root-retract],
+			[0, root]
+		]);
+	// }
+}
