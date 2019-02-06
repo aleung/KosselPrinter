@@ -1,5 +1,5 @@
 // --- CONFIG
-num_teeth = 3;
+num_teeth = 2;
 pillar_width = 39;
 // --- END
 
