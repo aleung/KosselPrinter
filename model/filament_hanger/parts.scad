@@ -2,16 +2,19 @@ include <../../lib/relativity.scad/relativity.scad> // https://github.com/davids
 
 $fn=12;
 
-bar_length = 50;
+bar_length = 66;
+bracket_length = 50;
 bar_width = 10;
 bar_height = 8;
 
 module bar() {
+  differed("hole", "not(hole)")
   box([bar_length, bar_width, 5], anchor=bottom-x) {
-    align(bottom+x)
-    differed("hole", "not(hole)")
-    box([6, $parent_size.y, 2], anchor=bottom-x)
-    rod(d=3.3, h=$parent_size.z+1, $class="hole");
+    align(bottom-x)
+    translated(x*bracket_length+z*3.5)
+    class("hole")
+    rod(d=6, h=10, $fn=6, anchor=bottom-x)
+    rod(d=3.3, h=30, $fn=12);
 
     align(top)
     hulled()
@@ -32,7 +35,7 @@ module bracket() {
   hulled(class="hull")
   box([1, 10, 22], anchor=top-x, $class="hull")
   align(top-x)
-  box([bar_length-offset, bar_width, 2], anchor=top-x) {
+  box([bracket_length-offset, bar_width, 2], anchor=top-x) {
     align(top+x)
     box([6, $parent_size.y, 2], anchor=top-x, $class="not-hull")
     rod(d=3.3, h=$parent_size.z+1, $class="hole");
@@ -81,7 +84,7 @@ module topfix() {
 
 }
 
-// bar();
+bar();
 
 // translated(y*20)
 // rotated(x*90)
@@ -92,5 +95,5 @@ module topfix() {
 // uphold()
 // ;
 
-rotated(-y*90)
-topfix();
+// rotated(-y*90)
+// topfix();
