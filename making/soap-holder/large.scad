@@ -10,7 +10,7 @@ wall_distance = 5;
 max_sinkage = 8;
 num_walls = 19;  // must be odd number
 
-debug = true;
+debug = false;
 
 width = wall_thickness * num_walls + wall_distance * (num_walls-1);
 echo (width=width);
@@ -70,11 +70,11 @@ module baseplate() {
 }
 
 module support() {
-  translated(x*30, n=[-2:2])
+  translated(x*60, n=[-1:1])
   hulled() {
-    translated(y*depth+z*height*2/3) box([0.2, 0.1, height], anchor=z);
-    box([0.2, 0.01, 1], anchor=-z);
-    translated(-y*4-z*4) box([0.2, 0.1, 3]);
+    translated(y*depth+z*height*2/3) box([0.6, 0.1, height], anchor=z);
+    box([0.6, 0.01, 1], anchor=-z);
+    translated(-y*4-z*4) box([0.6, 0.1, 3]);
   }
 }
 
@@ -107,6 +107,7 @@ rotated(-x*90) {
       box([width, depth, height], anchor=z-y);
   }
 
-  color("orange") support();
+  // to thin to print
+  // color("orange") support();
 
 }
