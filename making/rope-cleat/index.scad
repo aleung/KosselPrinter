@@ -74,5 +74,5 @@ module cover() {
 }
 
 body();
-// mirrored(x) translated(-(a+rope_d*1.5)*x) 
-//   cover();
+mirrored(x) translated(-(a+rope_d*1.5)*x) 
+  cover();
