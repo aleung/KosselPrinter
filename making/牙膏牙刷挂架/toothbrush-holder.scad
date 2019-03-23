@@ -1,7 +1,7 @@
 include <../../lib/relativity.scad/relativity.scad> // https://github.com/davidson16807/relativity.scad
 
 width = 50;
-depth = 16;
+depth = 17;
 height = 15;
 thickness = 2;
 $fn = 30;
@@ -19,5 +19,6 @@ differed("hole", "not(hole)") {
         box([8.5, 8, 3], anchor=-y);
         box([8.5, 1, 3], anchor=y);
       }
+      translated(y*1.5) box([12, 5, 3], anchor=-y);
     }
 }
