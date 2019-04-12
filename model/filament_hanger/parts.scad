@@ -1,17 +1,18 @@
 include <../../lib/relativity.scad/relativity.scad> // https://github.com/davidson16807/relativity.scad
 
-$fn=12;
+$fn=36;
 
-bar_length = 66;
-bracket_length = 50;
+bar_length = 70;
+bracket_length = 70;
+bracket_screw_hole = 50;
 bar_width = 10;
-bar_height = 8;
+bar_height = 10;
 
 module bar() {
   differed("hole", "not(hole)")
   box([bar_length, bar_width, 5], anchor=bottom-x) {
     align(bottom-x)
-    translated(x*bracket_length+z*3.5)
+    translated(x*bracket_screw_hole+z*3.5)
     class("hole")
     rod(d=6, h=10, $fn=6, anchor=bottom-x)
     rod(d=3.3, h=30, $fn=12);
@@ -20,6 +21,9 @@ module bar() {
     hulled()
     box([$parent_size.x, $parent_size.y, 0.01], anchor=bottom)
     box([$parent_size.x, 2, bar_height-5], anchor=bottom);
+
+    align(x-z)
+    box([4, bar_width, bar_height+7], anchor=-x-z);
   }
 
   box([4, 28, bar_height], anchor=bottom+x)
@@ -28,20 +32,62 @@ module bar() {
   box([3.5, 4, $parent_size.z], anchor=bottom-x+y);
 }
 
+
+
+// 安装轴承
+module bar_bearing() {
+  base_height = 6;
+  differed("hole", "not(hole)") {
+    translated(x*bracket_screw_hole)
+    rod(d=3.1, h=30, $class="hole");
+
+    box([bar_length, bar_width, base_height], anchor=-z-x) {
+      align(z)
+      hulled()
+      box([$parent_size.x, $parent_size.y, 0.01], anchor=-z)
+      box([$parent_size.x, 3, bar_height-base_height], anchor=-z);
+
+      hulled()
+      align(x-z) box([2, bar_width, bar_height], anchor=-x-z)
+      align(x-z) box([2, bar_width, bar_height+5], anchor=-x-z);
+
+      align(z) translated(2*x)
+      orient(x) mirrored(z) {
+        rod(d=3.1, h=bar_length+10, $class="hole", anchor=bottom);
+        translated(20*z) {
+          rod(d=11, h=10, $class="hole", anchor=bottom)
+          align(top)
+          translated(3*z) rod(d=6.2, h=20, $class="hole", anchor=bottom);
+          // color("red") rod(d=10, h=9, $class="normal"); // debug
+        } 
+      }
+    }
+
+    box([4, 28, bar_height], anchor=-z+x)
+    mirrored(y)
+    align(-z+x+y)
+    box([3.5, 4, $parent_size.z], anchor=-z-x+y);
+
+  }
+}
+
 module bracket() {
   offset = 1;
-  translate(x*offset)
-  differed("hole", "not(hole)")
-  hulled(class="hull")
-  box([1, 10, 22], anchor=top-x, $class="hull")
-  align(top-x)
-  box([bracket_length-offset, bar_width, 2], anchor=top-x) {
-    align(top+x)
-    box([6, $parent_size.y, 2], anchor=top-x, $class="not-hull")
-    rod(d=3.3, h=$parent_size.z+1, $class="hole");
+  differed("hole", "not(hole)") {
+    translated(bracket_screw_hole*x)
+    class("hole")
+    rod(d=3.3, h=3, anchor=top)
+    align(bottom) 
+    rod(d=6.2, h=50, anchor=top);
 
+    translated(x*offset)
+    hulled(class="hull")
+    box([1, bar_width, 22], anchor=top-x, $class="hull")
     align(top-x)
-    box([3, $parent_size.y, 2], anchor=top+x, $class="not-hull");
+    box([bracket_length-offset, $parent_size.y, 2], anchor=top-x) {
+      align(top-x)
+      box([3, $parent_size.y, 2], anchor=top+x, $class="not-hull");
+    }
   }
 }
 
@@ -84,7 +130,22 @@ module topfix() {
 
 }
 
-bar();
+module baffle() {
+  gap = 1;
+  box([3, bar_width, 18], anchor=x+z)
+  align(x+z)
+  box([gap, $parent_size.y, 10], anchor=-x+z)
+  align(x+z)
+  hulled()
+    box([2, $parent_size.y+4, 40], anchor=-x+z)
+    align(x+z)
+    box([4, 6, $parent_size.z], anchor=-x+z)
+  ;
+}
+
+bar_bearing();
+
+// baffle();
 
 // translated(y*20)
 // rotated(x*90)
