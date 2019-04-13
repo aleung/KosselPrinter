@@ -12,7 +12,7 @@ module plate() {
   box([width, height, 2]) {
     mirrored(y)
     align(x+y-z) translated(-25*x) box([30, 8, 2], anchor=x-y-z, $class="normal") // 挂耳
-      mirrored(x) translated(10*x) rod(d=4, h=3, $class="hole");
+      mirrored(x) translated(9*x) rod(d=4, h=3, $class="hole");
     translated(4*x) translated(10*y, n=[-2:2]) translated(23*x, n=[-1:1]) box([width/5, 7, 5], $class="hole"); // 开孔
     align(x+z) translated(47/2*y, [-1,1]) translated(x, [-5, -5-78]) 
       rod(d=8, h=3, anchor=-z)
