@@ -11,4 +11,5 @@ box([100, 9, 5]) {
       align(y) box([3, 3, $parent_size.z], anchor=-y, $class="normal");
     align(x+y) box([5, $parent_size.y, $parent_size.z], anchor=x+y, $class="hull");
   }
+  align(x-y) color("red") box([5, 2.5, 5], anchor=x+y);
 }
