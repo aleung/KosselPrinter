@@ -1,5 +1,7 @@
 include <../../lib/relativity.scad/relativity.scad>
 
+// 定制版本，盖住现有开关
+
 size_length = 93;
 height = 20.5;
 inner_height = 16.5;
