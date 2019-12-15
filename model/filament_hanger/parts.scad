@@ -8,6 +8,7 @@ bracket_screw_hole = 50;
 bar_width = 10;
 bar_height = 10;
 
+// deprecated by bar_bearing
 module bar() {
   differed("hole", "not(hole)")
   box([bar_length, bar_width, 5], anchor=bottom-x) {
@@ -107,6 +108,7 @@ module uphold() {
 }
 
 // infill: 100%
+// deprecated by topfix2
 module topfix() {
   differed("hole", "not(hole)")
   box([5, 10, 13], anchor=bottom) {
@@ -130,6 +132,26 @@ module topfix() {
 
 }
 
+// print on x-z plate, 100% infill
+module topfix2() {
+  top_height=8;
+  differed("cut", "not(cut)") {
+    box([30, 20, top_height+16], anchor=x+z) {
+      translated(-3*z) hulled("hull")
+        align(x+z) box([0.01, $parent_size.y, 10], anchor=-x+z, $class="hull")
+          align(-x+z) box([7, $parent_size.y, 3], anchor=-x+z)
+            translated(-1*z) 
+              align(-x+z) orient(-x) rod(d=3.5, h=40, anchor=bottom, $class="cut");
+      align(x) box([6.5, 9, $parent_size.z], anchor=-x, $class="cut");
+      align(-x-z) box([10, 30, 10], anchor=-x-z, $class="cut");
+    }
+    class("cut") translated(-15*x-top_height*z) minkowski() {
+      box([19.6, 20, 20], anchor=z);
+      orient(y) rod(r=0.5, h=20);
+    }
+  }
+}
+
 module baffle() {
   gap = 1;
   box([3, bar_width, 18], anchor=x+z)
@@ -143,7 +165,7 @@ module baffle() {
   ;
 }
 
-bar_bearing();
+// bar_bearing();
 
 // baffle();
 
@@ -158,3 +180,4 @@ bar_bearing();
 
 // rotated(-y*90)
 // topfix();
+topfix2();
