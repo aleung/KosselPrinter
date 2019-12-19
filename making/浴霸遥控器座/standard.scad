@@ -2,6 +2,8 @@ include <../../lib/relativity.scad/relativity.scad>
 
 // 标准版本，与原装尺寸一样
 
+// Print settings: infill 15%, without support
+
 size_length = 86;
 inner_size_length = 80;
 height = 11;
@@ -31,7 +33,7 @@ module body() {
 
     class("cut")
       translated(inner_height*z) minkowski() {
-        box([66.6, 66.6, 2], anchor=bottom);
+        box([66.6, 66.6, 5], anchor=bottom);
         rod(r=2, h=0.01);
       }
 
@@ -53,14 +55,14 @@ module inner() {
   }
 }
 
-preview = true;
-if (preview) {
-  %body();
+if ($preview) {
+  body();
   color("red") inner();
+} else {
+  // for generate STL
+  mirror(z) {
+    translated(x*100) body();
+    inner();
+  }
 }
 
-// for generate STL
-mirror(z) {
-  // body();
-  // inner();
-}
