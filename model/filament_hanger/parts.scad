@@ -2,7 +2,7 @@ include <../../lib/relativity.scad/relativity.scad> // https://github.com/davids
 
 $fn=36;
 
-bar_length = 70;
+bar_length = 75;
 bracket_length = 70;
 bracket_screw_hole = 50;
 bar_width = 10;
@@ -55,7 +55,7 @@ module bar_bearing() {
       align(z) translated(2*x)
       orient(x) mirrored(z) {
         rod(d=3.1, h=bar_length+10, $class="hole", anchor=bottom);
-        translated(20*z) {
+        translated(18*z) {
           rod(d=11, h=10, $class="hole", anchor=bottom)
           align(top)
           translated(3*z) rod(d=6.2, h=20, $class="hole", anchor=bottom);
@@ -165,7 +165,7 @@ module baffle() {
   ;
 }
 
-// bar_bearing();
+bar_bearing();
 
 // baffle();
 
@@ -180,4 +180,4 @@ module baffle() {
 
 // rotated(-y*90)
 // topfix();
-topfix2();
+// topfix2();
