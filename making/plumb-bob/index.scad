@@ -1,4 +1,5 @@
-include <../../lib/relativity.scad/relativity.scad> // https://github.com/davidson16807/relativity.scad
+// https://raw.githubusercontent.com/aleung/relativity.scad/master/relativity.scad
+include <../../lib/relativity.scad/relativity.scad> 
 
 d_nail_hole = 2.4;
 d_nut = 17;
@@ -108,6 +109,6 @@ if ($preview) {
   translated(20*x+30*z) mirror([0,0,1]) plumbbob();
   translated(20*y+7*z) mirror([0,0,1]) mandril();
   translated(-20*y) upper();
-  ring();
-  translate([-30,0,0]) rotate([90,0,0]) winder() winder_cross_section();
+  translate([0,0,1.5])ring();
+  translate([-30,0,5]) rotate([90,0,0]) winder() winder_cross_section();
 }
