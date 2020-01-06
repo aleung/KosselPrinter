@@ -30,3 +30,37 @@ echo:  M301 P22.20 I1.08 D114.00
 echo:Z-Probe Offset (mm):
 echo:  M851 Z0.00
 echo:SD card ok
+
+
+
+< 16:03:17: echo:Marlin 2.0.1
+< 16:03:17: echo: Last Updated: 2019-12-24 | Author: (none, default config)
+< 16:03:17: echo:Compiled: Dec 28 2019
+< 16:03:17: echo: Free Memory: 3898  PlannerBufferBytes: 1200
+< 16:03:19: echo:V74 stored settings retrieved (668 bytes; crc 49396)
+< 16:03:19: echo:  G21    ; Units in mm (mm)
+< 16:03:19: echo:  M149 C ; Units in Celsius
+< 16:03:19: echo:Filament settings: Disabled
+< 16:03:19: echo:  M200 D1.75
+< 16:03:19: echo:  M200 D0
+< 16:03:19: echo:Steps per unit:
+< 16:03:19: echo: M92 X100.00 Y100.00 Z100.00 E84.88
+< 16:03:19: echo:Maximum feedrates (units/s):
+< 16:03:19: echo:  M203 X500.00 Y500.00 Z500.00 E25.00
+< 16:03:19: echo:Maximum Acceleration (units/s2):
+< 16:03:19: echo:  M201 X9000.00 Y9000.00 Z9000.00 E10000.00
+< 16:03:19: echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+< 16:03:19: echo:  M204 P3000.00 R3000.00 T3000.00
+< 16:03:19: echo:Advanced: B<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> X<max_x_jerk> Y<max_y_jerk> Z<max_z_jerk> E<max_e_jerk>
+< 16:03:19: echo:  M205 B20000.00 S0.00 T0.00 X10.00 Y10.00 Z10.00 E5.00
+< 16:03:19: echo:Endstop adjustment:
+< 16:03:19: echo:  M666 X-0.75 Y-0.87 Z0.00
+< 16:03:19: echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> XYZ<tower angle corrections>
+< 16:03:19: echo:  M665 L214.00 R100.07 H244.61 S200.00 X0.13 Y-0.07 Z-0.06
+< 16:03:19: echo:Material heatup parameters:
+< 16:03:19: echo:  M145 S0 H180 B70 F255
+< 16:03:19: echo:  M145 S1 H240 B100 F255
+< 16:03:19: echo:PID settings:
+< 16:03:19: echo:  M301 P22.20 I1.08 D114.00
+< 16:03:19: echo:Z-Probe Offset (mm):
+< 16:03:19: echo:  M851 X0.00 Y0.00 Z0.00
