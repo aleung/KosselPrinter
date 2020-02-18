@@ -92,8 +92,6 @@ difference()
     sphere(d= dtop);
 
   //sawdust-channel
-  translate([-drill_diameter/4,-drill_diameter,-0.1]) 
-    cube([drill_diameter/2, drill_diameter, channel_height]); 
-  
+  translate([-drill_diameter/4,-1-guide_diameter/2,-0.1]) 
+    cube([drill_diameter/2, guide_diameter/2, channel_height]); 
 }
-
