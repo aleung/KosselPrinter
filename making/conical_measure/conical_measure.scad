@@ -2,10 +2,10 @@
 // bottom radius (mm)
 r_bottom = 15;
 // height (mm)
-height = 65;
+height = 67;
 // slope (Δr:Δh)
 slope = 1/2.5;
-// major scale interval (ml)
+// major scale interval
 scale_interval = 10;
 // number of minor tick marks between major tick marks 
 minor_ticks = 3;
@@ -19,13 +19,19 @@ thickness = 2;
 has_base = true;
 // whether has a spout
 has_spout = true;
+// spout size
+spout_size = 6;
+// Unit: 0 - ml, 1 - fluid ounce
+unit = 0;
 // ------
 
 use <text_on.scad> // https://github.com/aleung/text_on_OpenSCAD
 
+
+// ------- main ---------
+
 $fn = 100;
 label_font = "Arial";
-spout_size = 4;
 max_scale_height = height - spout_size;
 
 r_top = radius_at_height(height);
@@ -34,16 +40,20 @@ echo (r_top=r_top);
 scale_per_tick = scale_interval / (minor_ticks+1);
 echo (scale_per_tick=scale_per_tick);
 
+function convert_to_ml(v) = (unit == 1) ? v*29.5735 : v;
+
+function convert_from_ml(v) = (unit == 1) ? v/29.5735 : v;
+
 function radius_at_height(h) = r_bottom + h * slope;
 
 function height_at_volume(v, r) 
-  = pow((3*v*1000/(PI*pow(slope,2)) + pow(r,3)/pow(slope,3)), 1/3) - r/slope;
+  = pow((3*convert_to_ml(v)*1000/(PI*pow(slope,2)) + pow(r,3)/pow(slope,3)), 1/3) - r/slope;
 
 function height_at_tick(major, minor)
   = height_at_volume(scale_per_tick * ( major * (minor_ticks+1) + minor), r_bottom);
 
 function volume_at_height(h, r)
-  = (pow(slope,3) * pow((h + r/slope), 3) - pow(r,3)) * PI / (3*slope) / 1000;
+  = convert_from_ml((pow(slope,3) * pow((h + r/slope), 3) - pow(r,3)) * PI / (3*slope) / 1000);
 
 // type: 1 - minor, 2 - major, 3 - major with label
 module tick(h, type, label) {
@@ -56,6 +66,7 @@ module tick(h, type, label) {
 
 module ticks() {
   max_volume = volume_at_height(max_scale_height, r_bottom);
+  echo(max_volume=max_volume);
   for (major = [0 : max_volume/scale_interval]) {
     if (major > 0) {
       vol = scale_interval * major;
