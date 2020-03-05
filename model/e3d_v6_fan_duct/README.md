@@ -1,8 +1,18 @@
 # Compact E3D v6 2-in-1 fan duct
 
-Published on https://www.thingiverse.com/thing:2781523
-
 ## Changelog
+
+### 2020.02.B
+
+- 风扇垂直位置可调
+- 固定螺丝置于上方，风道之外，减少风道内部阻挡
+- 喷头风道尽量大内径和减少弯曲，减少风压损耗
+
+### 2020.02.A
+
+- 使用 Fusion 360 重新设计
+- 放弃净空设计，整体下移，以风道设计为目标
+- 喷头风道尽量与打印面平行，接近水平集中吹向喷头尖端，以尽快冷却挤出材料
 
 ### 2020.01
 
@@ -17,4 +27,5 @@ STL：
 
 ### 2018.02
 
-Initial version
+- Initial version
+- Published to https://www.thingiverse.com/thing:2781523

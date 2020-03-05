@@ -5,18 +5,18 @@ include <../../lib/relativity.scad/relativity.scad>
 fan_fixer_thickness = 3.5;
 fan_tilt = 20;
 fan_vertical_offset = 0;  // x axis in this model
-seperator_offset = 7;     // e3d heatsink flue and nozzle flue seperator position
+seperator_offset = 3;     // e3d heatsink flue and nozzle flue seperator position
 bolt_pillar_lenght = 5;
 outlet_tilt = fan_tilt+90;
 outlet_offset_vertical = -2;    // adjust then check the position
-outlet_offset_horizontal = 4;
+outlet_offset_horizontal = 0;
 outlet_size = [7, 17];
 
-nozzle_z = 23.5;          // vertical distant from nozzle tip to e3d heat sink
-nozzle_tip = 6;           // nozzle tip length
+nozzle_z = 19.5;          // vertical distant from nozzle tip to e3d heat sink
+nozzle_tip = 2;           // nozzle tip length:  2 - normal; 6 - airbrush
 
 D_M3 = 3.3; 
-D_M3_BOLT = 6.6;
+D_M3_BOLT = 6.5;
 $fn=30;
 
 module body() {
@@ -29,6 +29,13 @@ module body() {
       translated(fan_fixer_thickness*z-(fan_vertical_offset+20)*x) 
         rotated(-fan_tilt*y) box([30.5, 30.5, 0.01], anchor=-x);
     }
+
+    rod(d=37, h=fan_fixer_thickness*2, $class="cut");
+    // class("notcut") difference() {
+    //   rod(d=20, h=fan_fixer_thickness, anchor=bottom);
+    //   rod(d=18, h=fan_fixer_thickness*3);
+    // }
+    rotated(60*z, n=[0:360/60]) box([0.7, 20, fan_fixer_thickness], anchor=y-z, $class="notcut");
 
     // 风扇卡扣
     mirrored(y) hulled("hull") {
@@ -47,7 +54,7 @@ module body() {
 
     // E3D 散热片风道
     class("cut") hulled("hull") {
-      class("hull") difference() {
+      translated(fan_fixer_thickness*z) class("hull") difference() {
         rod(d=37, h=0.02);
         translated((seperator_offset-0.5)*x) box([40, 40, 0.02], anchor=-x);
       } 
@@ -58,7 +65,7 @@ module body() {
 
     // 喷嘴风道
     hull() {
-      difference() {
+      translated(fan_fixer_thickness*z) difference() {
         rod(d=40, h=0.01);
         translated((seperator_offset-2)*x) box([40, 40, 0.01], anchor=+x);
       } 
@@ -67,7 +74,7 @@ module body() {
           box([outlet_size.x, outlet_size.y, 0.01]);
     }  
     class("cut") hull() {
-      difference() {
+      translated(fan_fixer_thickness*z) difference() {
         rod(d=37, h=0.02);
         translated((seperator_offset+0.5)*x) box([40, 40, 0.02], anchor=+x);
       } 
@@ -79,11 +86,18 @@ module body() {
     translated(fan_fixer_thickness*z-(fan_vertical_offset+20)*x) 
       rotated(-fan_tilt*y) box([30.5, 30.5, 0], anchor=-x) {
         class("e3d") children();
+        // e3d原装风扇座螺丝
         mirrored(y) translated(12*x+12*y) {
           rod(d=6, h=50, anchor=top, $class="cut");
           class("notcut") difference() {
             rod(d=6, h=bolt_pillar_lenght, anchor=top);
             rod(d=3.2, h=50);
+          }
+          // 防漏挡板
+          color("red") class("notcut") difference() {
+            rod(d=8, h=0, anchor=top);  // adjust h
+            rod(d=6, h=50);
+            box([4, 8, 23*tan(fan_tilt)+0.01], anchor=-x+z);
           }
         }
       }

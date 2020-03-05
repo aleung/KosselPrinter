@@ -26,7 +26,7 @@ difference() {
   e3d_v6_duct_bolt_hole(fan_fixer_d, bolt_pillar_lenght);
 }
 
-// color("white") e3d_v6_and_fan_duct(fan_fixer_d);  // remark it in final output
+color("white") e3d_v6_and_fan_duct(fan_fixer_d);  // remark it in final output
 
 
 // 风扇座, d-最小厚度
