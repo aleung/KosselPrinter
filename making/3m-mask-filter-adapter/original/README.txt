@@ -1,1 +1,0 @@
-龍捲風 Filter capsule for 3M 6200 Gas Mask (fit38mm filter) - Ver.7.3 by ALPHA by alphaa on Thingiverse: https://www.thingiverse.com/thing:4160375
