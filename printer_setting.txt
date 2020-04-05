@@ -64,3 +64,74 @@ echo:SD card ok
 < 16:03:19: echo:  M301 P22.20 I1.08 D114.00
 < 16:03:19: echo:Z-Probe Offset (mm):
 < 16:03:19: echo:  M851 X0.00 Y0.00 Z0.00
+
+
+
+
+< 01:02:12: echo:V56 stored settings retrieved (700 bytes; crc 60281)
+< 01:02:12: echo:  G21    ; (mm)
+< 01:02:12: echo:  M149 C ; Units in Celsius
+< 01:02:12: echo:Filament settings: Disabled
+< 01:02:12: echo:  M200 D1.75
+< 01:02:12: echo:  M200 D0
+< 01:02:12: echo:Steps per unit:
+< 01:02:12: echo:  M92 X100.00 Y100.00 Z100.00 E99.55
+< 01:02:12: echo:Maximum feedrates (units/s):
+< 01:02:12: echo:  M203 X500.00 Y500.00 Z500.00 E100.00
+< 01:02:12: echo:Maximum Acceleration (units/s2):
+< 01:02:12: echo:  M201 X9000 Y9000 Z9000 E10000
+< 01:02:12: echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+< 01:02:12: echo:  M204 P1500.00 R1500.00 T1500.00
+< 01:02:12: echo:Advanced: Q<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> X<max_x_jerk> Y<max_y_jerk> Z<max_z_jerk> E<max_e_jerk>
+< 01:02:12: echo:  M205 Q20000 S0.00 T0.00 X20.00 Y20.00 Z20.00 E5.00
+< 01:02:12: echo:Endstop adjustment:
+< 01:02:12: echo:  M666 X-0.68 Y-0.74 Z0.00
+< 01:02:12: echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> B<calibration radius> XYZ<tower angle corrections>
+< 01:02:12: echo:  M665 L214.00 R100.60 H245.70 S200.00 B80.00 X0.04 Y-0.13 Z0.09
+< 01:02:12: echo:Material heatup parameters:
+< 01:02:12: echo:  M145 S0 H185 B70 F255
+< 01:02:12: echo:  M145 S1 H240 B100 F255
+< 01:02:12: echo:PID settings:
+< 01:02:12: echo:  M301 P22.20 I1.08 D114.00
+< 01:02:12: echo:Z-Probe Offset (mm):
+< 01:02:12: echo:  M851 Z0.00
+< 01:02:12: echo:Filament load/unload lengths:
+< 01:02:12: echo:  M603 L770.00 U770.00
+
+
+
+
+< 01:07:55: echo:Marlin 1.1.9
+< 01:07:55: echo: Last Updated: 2018-08-01 | Author: (none, default config)
+< 01:07:55: echo:Compiled: Feb 29 2020
+< 01:07:55: echo: Free Memory: 3834  PlannerBufferBytes: 1232
+< 01:07:55: echo:V56 stored settings retrieved (700 bytes; crc 60281)
+< 01:07:55: echo:  G21    ; (mm)
+< 01:07:55: echo:  M149 C ; Units in Celsius
+< 01:07:55: echo:Filament settings: Disabled
+< 01:07:55: echo:  M200 D1.75
+< 01:07:55: echo:  M200 D0
+< 01:07:55: echo:Steps per unit:
+< 01:07:55: echo:  M92 X100.00 Y100.00 Z100.00 E99.55
+< 01:07:55: echo:Maximum feedrates (units/s):
+< 01:07:55: echo:  M203 X500.00 Y500.00 Z500.00 E100.00
+< 01:07:55: echo:Maximum Acceleration (units/s2):
+< 01:07:55: echo:  M201 X9000 Y9000 Z9000 E10000
+< 01:07:55: echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+< 01:07:55: echo:  M204 P1500.00 R1500.00 T1500.00
+< 01:07:55: echo:Advanced: Q<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> X<max_x_jerk> Y<max_y_jerk> Z<max_z_jerk> E<max_e_jerk>
+< 01:07:55: echo:  M205 Q20000 S0.00 T0.00 X20.00 Y20.00 Z20.00 E5.00
+< 01:07:55: echo:Endstop adjustment:
+< 01:07:55: echo:  M666 X-0.68 Y-0.74 Z0.00
+< 01:07:55: echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> B<calibration radius> XYZ<tower angle corrections>
+< 01:07:55: echo:  M665 L214.00 R100.60 H245.70 S200.00 B80.00 X0.04 Y-0.13 Z0.09
+< 01:07:55: echo:Material heatup parameters:
+< 01:07:55: echo:  M145 S0 H185 B70 F255
+< 01:07:55: echo:  M145 S1 H240 B100 F255
+< 01:07:55: echo:PID settings:
+< 01:07:55: echo:  M301 P22.20 I1.08 D114.00
+< 01:07:55: echo:Z-Probe Offset (mm):
+< 01:07:55: echo:  M851 Z0.00
+< 01:07:55: echo:Filament load/unload lengths:
+< 01:07:55: echo:  M603 L770.00 U770.00
+
