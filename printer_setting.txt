@@ -135,3 +135,79 @@ echo:SD card ok
 < 01:07:55: echo:Filament load/unload lengths:
 < 01:07:55: echo:  M603 L770.00 U770.00
 
+
+
+2020-4-19 Replace new effector
+
+echo:V56 stored settings retrieved (700 bytes; crc 15965)
+echo:  G21    ; (mm)
+echo:  M149 C ; Units in Celsius
+echo:Filament settings: Disabled
+echo:  M200 D1.75
+echo:  M200 D0
+echo:Steps per unit:
+echo:  M92 X100.00 Y100.00 Z100.00 E99.55
+echo:Maximum feedrates (units/s):
+echo:  M203 X500.00 Y500.00 Z500.00 E100.00
+echo:Maximum Acceleration (units/s2):
+echo:  M201 X9000 Y9000 Z9000 E10000
+echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+echo:  M204 P1500.00 R1500.00 T1500.00
+echo:Advanced: Q<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> X<max_x_jerk> Y<max_y_jerk> Z<max_z_jerk> E<max_e_jerk>
+echo:  M205 Q20000 S0.00 T0.00 X20.00 Y20.00 Z20.00 E5.00
+echo:Endstop adjustment:
+echo:  M666 X-0.53 Y-0.57 Z0.00
+echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> B<calibration radius> XYZ<tower angle corrections>
+echo:  M665 L214.00 R101.08 H246.30 S200.00 B80.00 X0.02 Y0.07 Z-0.08
+echo:Material heatup parameters:
+echo:  M145 S0 H185 B70 F255
+echo:  M145 S1 H240 B100 F255
+echo:PID settings:
+echo:  M301 P22.20 I1.08 D114.00
+echo:Z-Probe Offset (mm):
+echo:  M851 Z0.00
+echo:Filament load/unload lengths:
+echo:  M603 L770.00 U770.00
+
+
+
+
+2020-5-5 Titan extruder
+
+echo:Marlin 1.1.9
+echo: Last Updated: 2018-08-01 | Author: (none, default config)
+echo:Compiled: May  5 2020
+echo: Free Memory: 3834  PlannerBufferBytes: 1232
+echo:V56 stored settings retrieved (700 bytes; crc 31867)
+echo:  G21    ; (mm)
+echo:  M149 C ; Units in Celsius
+echo:Filament settings: Disabled
+echo:  M200 D1.75
+echo:  M200 D0
+echo:Steps per unit:
+echo:  M92 X100.00 Y100.00 Z100.00 E391.50
+echo:Maximum feedrates (units/s):
+echo:  M203 X500.00 Y500.00 Z500.00 E100.00
+echo:Maximum Acceleration (units/s2):
+echo:  M201 X9000 Y9000 Z9000 E10000
+echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+echo:  M204 P1500.00 R1500.00 T1500.00
+echo:Advanced: Q<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> X<max_x_jerk> Y<max_y_jerk> Z<max_z_jerk> E<max_e_jerk>
+echo:  M205 Q20000 S0.00 T0.00 X20.00 Y20.00 Z20.00 E5.00
+echo:Endstop adjustment:
+echo:  M666 X-0.53 Y-0.57 Z0.00
+echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> B<calibration radius> XYZ<tower angle corrections>
+echo:  M665 L214.00 R101.08 H246.30 S200.00 B80.00 X0.02 Y0.07 Z-0.08
+echo:Material heatup parameters:
+echo:  M145 S0 H185 B70 F255
+echo:  M145 S1 H240 B100 F255
+echo:PID settings:
+echo:  M301 P22.20 I1.08 D114.00
+echo:Z-Probe Offset (mm):
+echo:  M851 Z0.00
+echo:Filament load/unload lengths:
+echo:  M603 L770.00 U770.00
+echo:SD card ok
+
+
+
