@@ -18,10 +18,12 @@ M665 L214.00 R100.41 H244.52 S200.00 B75.00 X0.03 Y-0.01 Z-0.02
 
 ----
 
+
+
 ----
 
 Test bed space:
-G0 F1500 X0 Y0 Z10
+G0 F2000 X0 Y0 Z10
 M665 H245.7 <-- test the height
 
 Save settings:

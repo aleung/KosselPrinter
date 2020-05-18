@@ -210,4 +210,10 @@ echo:  M603 L770.00 U770.00
 echo:SD card ok
 
 
+2020-5-18
+
+echo:Endstop adjustment:
+echo:  M666 X-0.43 Y-0.54 Z0.00
+echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> 
+echo:  M665 L214.00 R101.18 H246.45 S200.00 B80.00 X0.04 Y-0.01 Z-0.03
 
