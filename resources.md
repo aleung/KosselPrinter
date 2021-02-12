@@ -91,3 +91,10 @@ List of G-codes can be found in [RepRap](http://reprap.org/wiki/G-code) and [Mar
 | `M665 [Bnnn] [Hnnn] [Lnnn] [Rnnn] [Sfff] [Xfff] [Yfff] [Zfff]` | Delta configuration       |                                          |
 | `M666 [Xfff] [Yfff] [Zfff]`              | Delta endstop adjustments | Negative endstop corrections move the head closer to the bed (unit:mm) |
 
+```
+G0 X0 Y0 Z1 F3000      <- center -->
+G0 X80 Y0 Z1 F3000     <- x ->
+G0 X-80 Y0 Z1 F3000    <- -x ->
+G0 X0 Y80 Z1 F3000     <- y ->
+G0 X0 Y-80 Z1 F3000    <- -y ->
+```
