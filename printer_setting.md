@@ -220,7 +220,7 @@ echo:Steps per unit:
 echo:  M92 X100.00 Y100.00 Z100.00 E407.80
 echo:Endstop adjustment:
 echo:  M666 X-0.43 Y-0.54 Z0.00
-echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s> 
+echo:Delta settings: L<diagonal_rod> R<radius> H<height> S<segments_per_s>
 echo:  M665 L214.00 R101.18 H246.45 S200.00 B80.00 X0.04 Y-0.01 Z-0.03
 ```
 
@@ -322,3 +322,81 @@ echo:  M603 L100.00 U200.00
 ```
 
 打印XY 100mm十字，Y轴基本准确，X轴100.2，这个误差看起来可以不做补偿，在可打印范围内不超过0.5mm.
+
+
+# 2023-1-7
+
+刷新firmware前备份设置
+
+M503
+echo:; Linear Units:
+echo:  G21 ; (mm)
+echo:; Temperature Units:
+echo:  M149 C ; Units in Celsius
+echo:; Filament settings (Disabled):
+echo:  M200 S0 D1.75
+echo:; Steps per unit:
+echo:  M92 X100.00 Y100.00 Z100.00 E407.80
+echo:; Max feedrates (units/s):
+echo:  M203 X500.00 Y500.00 Z100.00 E50.00
+echo:; Max Acceleration (units/s2):
+echo:  M201 X9000.00 Y9000.00 Z9000.00 E10000.00
+echo:; Acceleration (units/s2) (P<print-accel> R T):
+echo:  M204 P4000.00 R4000.00 T4000.00
+echo:; Advanced (B<min_segment_time_us> S T X Y Z E):
+echo:  M205 B20000.00 S0.00 T0.00 X15.00 Y15.00 Z15.00 E5.00
+echo:; Delta (L<diagonal-rod> R H S XYZ ABC):
+echo:  M665 L216.70 R101.74 H236.11 S120.00 X0.13 Y-0.10 Z-0.03 A0.00 B0.00 C0.00
+echo:; Endstop adjustment:
+echo:  M666 X-0.30 Y-0.99 Z0.00
+echo:; Material heatup parameters:
+echo:  M145 S0 H190.00 B50.00 F0
+echo:  M145 S1 H215.00 B78.00 F0
+echo:; Hotend PID:
+echo:  M301 P24.45 I1.59 D94.12
+echo:; Controller Fan:
+echo:  M710 S128 I0 A1 D60 ; (50% 0%)
+echo:; Z-Probe Offset:
+echo:  M851 X0.00 Y0.00 Z-0.30 ; (mm)
+echo:; Filament load/unload:
+echo:  M603 L100.00 U200.00 ; (mm)
+
+# 2023-2-20
+
+DELTA_ANALYZE CENTER_DISTS=74.2,73.9,74.1,74.0,74.0,74.0
+DELTA_ANALYZE OUTER_DISTS=74.0,74.2,74.05,74.1,74.2,74.1
+DELTA_ANALYZE CENTER_PILLAR_WIDTHS=8.94,8.76,8.75
+DELTA_ANALYZE OUTER_PILLAR_WIDTHS=8.83,8.92,8.76,8.9,8.8,8.92
+DELTA_ANALYZE CALIBRATE=extended
+
+```
+# *# [extruder]
+# *# control = pid
+# *# pid_kp = 35.031
+# *# pid_ki = 1.979
+# *# pid_kd = 155.010
+# * #
+# *# [heater_bed]
+# *# control = pid
+# *# pid_kp = 64.827
+# *# pid_ki = 1.049
+# *# pid_kd = 1001.573
+# * #
+# *# [printer]
+# *# delta_radius = 100.598259
+# * #
+# *# [stepper_a]
+# *# angle = 209.925927
+# *# arm_length = 215.032821
+# *# position_endstop = 236.618508
+# * #
+# *# [stepper_b]
+# *# angle = 329.721977
+# *# arm_length = 215.432433
+# *# position_endstop = 237.284172
+# * #
+# *# [stepper_c]
+# *# angle = 90.000000
+# *# arm_length = 215.606792
+# *# position_endstop = 237.255905
+```
