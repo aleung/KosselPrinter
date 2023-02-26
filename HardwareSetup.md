@@ -4,39 +4,15 @@
 
 热床使用独立电源驱动，控制板仅仅提供控制信号，对控制板无功率要求。
 
+热床: MK3圆形热床铝基板，直径220mm ，厚3mm; 支持12V/24V供电，
 
+热床电源: 明纬nes-350-24，350W 24V 14.6A
 
-热床 
+热床功率扩展模块：最大电流25A
 
-MK3圆形热床铝基板，直径220mm ，厚3mm
-
-支持12V/24V供电，
-
-
-
-热床电源
-
-明纬nes-350-24，350W 24V 14.6A
-
-
-
-热床功率扩展模块
-
-最大电流25A
-
-
-
-热床热敏电阻
-
-NTC 100KΩ, B-value: 3950K
-
-
+热床热敏电阻：NTC 100KΩ, B-value: 3950K
 
 ## 热端
-
-
-
-
 
 ## 控制板
 
@@ -62,7 +38,7 @@ UART模式下，只需要PDN_UART、DIR、STEP三个控制信号，其中DIR和S
 
 另外，根据 Klipper 文档，只需要将 PDN_UART 接到一个 pin，而无需通过加电阻接 TX/RX 两个 pin。
 
-> Klipper never uses "gpio hardware irqs" - see: https://www.klipper3d.org/FAQ.html#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin
+> Klipper never uses "gpio hardware irqs" - see: <https://www.klipper3d.org/FAQ.html#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin>
 >
 > Klipper can use any regular GPIO pin for the UART wire. Only one wire is needed (although you can also define both RX and TX if you wish).
 
@@ -70,3 +46,6 @@ UART模式下，只需要PDN_UART、DIR、STEP三个控制信号，其中DIR和S
 
 台达12V10A
 
+## 步进电机
+
+1.8°步进
