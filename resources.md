@@ -16,7 +16,7 @@
 
 Install [Arduino IDE](https://www.arduino.cc/)
 
-On Tools menu, select board: MEGA 2560 and port. 
+On Tools menu, select board: MEGA 2560 and port.
 
 ## Firmware
 
@@ -42,7 +42,7 @@ Double click `Marlin/Marlin.ino` file to open project in Arduino IDE.
 
 * `DEFAULT_AXIS_STEPS_PER_UNIT` = { 100, 100, 100, 84.88 }
 
-## Slicer 
+## Slicer
 
 Slicers prepare a solid 3D model by dividing it up into thin slices (layers). In the process it generates the G-code base on printer parameters.
 
@@ -97,4 +97,14 @@ G0 X80 Y0 Z1 F3000     <- x ->
 G0 X-80 Y0 Z1 F3000    <- -x ->
 G0 X0 Y80 Z1 F3000     <- y ->
 G0 X0 Y-80 Z1 F3000    <- -y ->
+```
+
+## Klipper Delta Calibration
+
+```
+DELTA_ANALYZE CENTER_DISTS=74.86,74.52,74.66,74.64,74.56,74.64
+DELTA_ANALYZE OUTER_DISTS=74.52,74.68,74.58,74.58,74.72,74.50
+DELTA_ANALYZE CENTER_PILLAR_WIDTHS=9.08,9.06,9.02
+DELTA_ANALYZE OUTER_PILLAR_WIDTHS=9.02,9.08,9.02,9.12,9.02,9.12
+DELTA_ANALYZE CALIBRATE=extended
 ```
