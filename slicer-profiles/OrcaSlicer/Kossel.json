@@ -1,0 +1,261 @@
+{
+    "auxiliary_fan": "0",
+    "bbl_calib_mark_logo": "1",
+    "bed_custom_model": "",
+    "bed_custom_texture": "/home/leoliang/projects/KosselPrinter/model/bed_shape/2021/bed_shape.png",
+    "bed_exclude_area": [
+        "0x0"
+    ],
+    "before_layer_change_gcode": "\n",
+    "change_filament_gcode": "M600",
+    "default_filament_profile": [],
+    "default_print_profile": "0.20mm Standard @FLSun",
+    "deretraction_speed": [
+        "25"
+    ],
+    "extruder_clearance_height_to_lid": "140",
+    "extruder_clearance_height_to_rod": "36",
+    "extruder_clearance_radius": "30",
+    "extruder_colour": [
+        "#018001"
+    ],
+    "extruder_offset": [
+        "0x0"
+    ],
+    "from": "",
+    "gcode_flavor": "klipper",
+    "host_type": "octoprint",
+    "inherits": "FLSun V400 0.4 nozzle",
+    "layer_change_gcode": "",
+    "machine_end_gcode": "END_PRINT\n",
+    "machine_load_filament_time": "0",
+    "machine_max_acceleration_e": [
+        "5000",
+        "5000"
+    ],
+    "machine_max_acceleration_extruding": [
+        "1500",
+        "2000"
+    ],
+    "machine_max_acceleration_retracting": [
+        "5000",
+        "5000"
+    ],
+    "machine_max_acceleration_travel": [
+        "20000",
+        "20000"
+    ],
+    "machine_max_acceleration_x": [
+        "10000",
+        "2000"
+    ],
+    "machine_max_acceleration_y": [
+        "10000",
+        "2000"
+    ],
+    "machine_max_acceleration_z": [
+        "5000",
+        "200"
+    ],
+    "machine_max_jerk_e": [
+        "2.5",
+        "2.5"
+    ],
+    "machine_max_jerk_x": [
+        "5",
+        "9"
+    ],
+    "machine_max_jerk_y": [
+        "5",
+        "9"
+    ],
+    "machine_max_jerk_z": [
+        "0.2",
+        "0.4"
+    ],
+    "machine_max_speed_e": [
+        "90",
+        "25"
+    ],
+    "machine_max_speed_x": [
+        "1000",
+        "1000"
+    ],
+    "machine_max_speed_y": [
+        "1000",
+        "1000"
+    ],
+    "machine_max_speed_z": [
+        "30",
+        "12"
+    ],
+    "machine_min_extruding_rate": [
+        "0",
+        "0"
+    ],
+    "machine_min_travel_rate": [
+        "0",
+        "0"
+    ],
+    "machine_pause_gcode": "PAUSE\n",
+    "machine_start_gcode": "START_PRINT BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP=[first_layer_temperature]\n\nSET_GCODE_OFFSET Z=0.02\n",
+    "machine_unload_filament_time": "0",
+    "max_layer_height": [
+        "0.4"
+    ],
+    "min_layer_height": [
+        "0.08"
+    ],
+    "name": "Kossel",
+    "nozzle_diameter": [
+        "0.5"
+    ],
+    "nozzle_hrc": "0",
+    "nozzle_type": "hardened_steel",
+    "nozzle_volume": "0",
+    "print_host": "192.168.0.15:7125",
+    "print_host_webui": "192.168.0.15:8080",
+    "printable_area": [
+        "8.21272x-94.6443",
+        "13.6575x-94.0132",
+        "19.0568x-93.069",
+        "24.3927x-91.815",
+        "29.6473x-90.2554",
+        "34.8033x-88.3953",
+        "39.8434x-86.241",
+        "44.7509x-83.7995",
+        "49.5093x-81.0791",
+        "54.103x-78.0888",
+        "58.5166x-74.8385",
+        "62.7354x-71.3391",
+        "76.923x-46.7654",
+        "76.923x-30.7654",
+        "86.0252x-15",
+        "93.8083x-15",
+        "94.5246x-9.49176",
+        "94.9178x-3.95108",
+        "94.9865x1.60311",
+        "94.7304x7.15182",
+        "94.1505x12.6761",
+        "93.2487x18.157",
+        "92.0281x23.5759",
+        "90.493x28.9141",
+        "88.6484x34.1535",
+        "86.5008x39.2762",
+        "84.0574x44.2645",
+        "81.3267x49.1016",
+        "78.318x53.7708",
+        "75.0415x58.2561",
+        "71.5085x62.5423",
+        "67.731x66.6147",
+        "63.7219x70.4594",
+        "59.495x74.0631",
+        "55.0647x77.4137",
+        "50.4462x80.4996",
+        "45.6552x83.3103",
+        "40.7081x85.8362",
+        "35.6218x88.0686",
+        "30.4138x90",
+        "-30.4138x90",
+        "-35.6218x88.0686",
+        "-40.7081x85.8362",
+        "-45.6552x83.3103",
+        "-50.4462x80.4996",
+        "-55.0647x77.4137",
+        "-59.495x74.0631",
+        "-63.7219x70.4594",
+        "-67.731x66.6147",
+        "-71.5085x62.5423",
+        "-75.0415x58.2561",
+        "-78.318x53.7708",
+        "-81.3267x49.1016",
+        "-84.0574x44.2645",
+        "-86.5008x39.2762",
+        "-88.6484x34.1535",
+        "-90.493x28.9141",
+        "-92.0281x23.5759",
+        "-93.2487x18.157",
+        "-94.1505x12.6761",
+        "-94.7304x7.15182",
+        "-94.9865x1.60311",
+        "-94.9178x-3.95108",
+        "-94.5246x-9.49176",
+        "-93.8083x-15",
+        "-86.0252x-15",
+        "-76.923x-30.7654",
+        "-76.923x-46.7654",
+        "-62.7354x-71.3391",
+        "-58.5166x-74.8385",
+        "-54.103x-78.0888",
+        "-49.5093x-81.0791",
+        "-44.7509x-83.7995",
+        "-39.8434x-86.241",
+        "-34.8033x-88.3953",
+        "-29.6473x-90.2554",
+        "-24.3927x-91.815",
+        "-19.0568x-93.069",
+        "-13.6575x-94.0132",
+        "-8.21272x-94.6443",
+        "-2.74062x-94.9604",
+        "2.74062x-94.9604"
+    ],
+    "printable_height": "230",
+    "printer_model": "FLSun V400",
+    "printer_settings_id": "Kossel",
+    "printer_technology": "FFF",
+    "printer_variant": "0.4",
+    "printhost_apikey": "AF6C02432C1C4F0ABDE4866B29250E32",
+    "printhost_authorization_type": "key",
+    "printhost_cafile": "",
+    "printhost_password": "",
+    "printhost_port": "",
+    "printhost_ssl_ignore_revoke": "0",
+    "printhost_user": "",
+    "retract_before_wipe": [
+        "70%"
+    ],
+    "retract_length_toolchange": [
+        "2"
+    ],
+    "retract_restart_extra": [
+        "0"
+    ],
+    "retract_restart_extra_toolchange": [
+        "0"
+    ],
+    "retract_when_changing_layer": [
+        "1"
+    ],
+    "retraction_length": [
+        "1.4"
+    ],
+    "retraction_minimum_travel": [
+        "2"
+    ],
+    "retraction_speed": [
+        "25"
+    ],
+    "scan_first_layer": "0",
+    "silent_mode": "0",
+    "single_extruder_multi_material": "1",
+    "template_custom_gcode": "",
+    "thumbnails": [
+        "300x300"
+    ],
+    "upward_compatible_machine": [],
+    "use_firmware_retraction": "0",
+    "use_relative_e_distances": "1",
+    "version": "1.6.0.0",
+    "wipe": [
+        "0"
+    ],
+    "wipe_distance": [
+        "2"
+    ],
+    "z_hop": [
+        "0.2"
+    ],
+    "z_hop_types": [
+        "Normal Lift"
+    ]
+}
