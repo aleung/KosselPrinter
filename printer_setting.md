@@ -400,3 +400,8 @@ DELTA_ANALYZE CALIBRATE=extended
 # *# arm_length = 215.606792
 # *# position_endstop = 237.255905
 ```
+
+# 2023-8-12
+
+Klipper 配置在 `klipper_config` 目录，这里不再记录。
+更换热端，需要设置 `SET_GCODE_OFFSET Z=-1.2`
