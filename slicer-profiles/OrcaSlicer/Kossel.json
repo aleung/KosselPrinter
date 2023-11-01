@@ -1,6 +1,5 @@
 {
     "auxiliary_fan": "0",
-    "bbl_calib_mark_logo": "1",
     "bed_custom_model": "",
     "bed_custom_texture": "/home/leoliang/projects/KosselPrinter/model/bed_shape/2021/bed_shape.png",
     "bed_exclude_area": [
@@ -8,11 +7,15 @@
     ],
     "before_layer_change_gcode": "\n",
     "change_filament_gcode": "M600",
+    "cooling_tube_length": "5",
+    "cooling_tube_retraction": "91.5",
     "default_filament_profile": [],
-    "default_print_profile": "0.20mm Standard @FLSun",
+    "default_print_profile": "0.20mm Standard @FLSun V400",
     "deretraction_speed": [
         "25"
     ],
+    "enable_filament_ramming": "1",
+    "extra_loading_move": "-2",
     "extruder_clearance_height_to_lid": "140",
     "extruder_clearance_height_to_rod": "36",
     "extruder_clearance_radius": "30",
@@ -22,8 +25,12 @@
     "extruder_offset": [
         "0x0"
     ],
+    "fan_kickstart": "0",
+    "fan_speedup_overhangs": "1",
+    "fan_speedup_time": "0",
     "from": "",
     "gcode_flavor": "klipper",
+    "high_current_on_filament_swap": "0",
     "host_type": "octoprint",
     "inherits": "FLSun V400 0.4 nozzle",
     "layer_change_gcode": "",
@@ -62,15 +69,15 @@
         "2.5"
     ],
     "machine_max_jerk_x": [
-        "5",
+        "10",
         "9"
     ],
     "machine_max_jerk_y": [
-        "5",
+        "10",
         "9"
     ],
     "machine_max_jerk_z": [
-        "0.2",
+        "10",
         "0.4"
     ],
     "machine_max_speed_e": [
@@ -98,7 +105,7 @@
         "0"
     ],
     "machine_pause_gcode": "PAUSE\n",
-    "machine_start_gcode": "START_PRINT BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP=[first_layer_temperature]\n\nSET_GCODE_OFFSET Z=0.02\n",
+    "machine_start_gcode": "START_PRINT BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP=[first_layer_temperature]\n\nSET_GCODE_OFFSET Z=-1.2\n",
     "machine_unload_filament_time": "0",
     "max_layer_height": [
         "0.4"
@@ -111,8 +118,9 @@
         "0.5"
     ],
     "nozzle_hrc": "0",
-    "nozzle_type": "hardened_steel",
+    "nozzle_type": "brass",
     "nozzle_volume": "0",
+    "parking_pos_retraction": "92",
     "print_host": "192.168.0.15:7125",
     "print_host_webui": "192.168.0.15:8080",
     "printable_area": [
@@ -201,6 +209,7 @@
     ],
     "printable_height": "230",
     "printer_model": "FLSun V400",
+    "printer_notes": "",
     "printer_settings_id": "Kossel",
     "printer_technology": "FFF",
     "printer_variant": "0.4",
@@ -211,11 +220,21 @@
     "printhost_port": "",
     "printhost_ssl_ignore_revoke": "0",
     "printhost_user": "",
+    "purge_in_prime_tower": "1",
     "retract_before_wipe": [
         "70%"
     ],
     "retract_length_toolchange": [
         "2"
+    ],
+    "retract_lift_above": [
+        "0"
+    ],
+    "retract_lift_below": [
+        "0"
+    ],
+    "retract_lift_enforce": [
+        "All Surfaces"
     ],
     "retract_restart_extra": [
         "0"
@@ -250,7 +269,7 @@
         "0"
     ],
     "wipe_distance": [
-        "2"
+        "1"
     ],
     "z_hop": [
         "0.2"
